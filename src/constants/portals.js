@@ -9,6 +9,7 @@ export const PORTALS = [
   { name: "ELR" },
   { name: "PCFMRS" },
   { name: "MOVEit" },
+  { name: "Prenatal"},
 ]
 
 export default PORTALS;
