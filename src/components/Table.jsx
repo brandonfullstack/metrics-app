@@ -10,28 +10,28 @@ export default function Table() {
   return (
     <div className="container">
 
-    <table className="table table-borderless table-responsive mx-auto p-5">
-      <thead>
-        <tr>
-          <th><span className="visually-hidden">Metrics</span></th>
-          {portals.map((portal, index) => (
-            <th key={index} className="text-nowrap text-center">{portal.name}</th>
-            ))}
-        </tr>
-      </thead>
-      <tbody>
-        {INTERACTIONS.map((interaction, index) => (
+      <table className="table table-borderless table-responsive mx-auto p-5">
+        <thead>
           <tr>
-            <th className="w-10 text-end align-middle">{interaction.name}</th>
+            <th><span className="visually-hidden">Metrics</span></th>
             {portals.map((portal, index) => (
-              <td key={index} className="text-nowrap">
-                <input type="number" min="0" className="form-control" id={`${portal.name + interaction.name}`} name={`${portal.name + interaction.name}`} tabIndex={`${index + 1}`} />
-              </td>
+              <th key={index} className="text-nowrap text-center">{portal.name}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
-</div>
+        </thead>
+        <tbody>
+          {INTERACTIONS.map((interaction, index) => (
+            <tr>
+              <th className="w-10 text-end align-middle">{interaction.name}</th>
+              {portals.map((portal, index) => (
+                <td key={index} className="text-nowrap">
+                  <input type="number" min="0" className="form-control" id={`${portal.name + interaction.name}`} name={`${portal.name + interaction.name}`} tabIndex={`${index + 1}`} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
