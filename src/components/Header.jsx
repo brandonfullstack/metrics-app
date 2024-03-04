@@ -1,12 +1,17 @@
-import React from "react";
+
 // import flexImage from "./../img/flex.png";
+import PORTALS from "../constants/portals";
+import { usePortals } from "../hooks/usePortals";
+
 
 function Header() {
+
+  const { portals, setPortal } = usePortals();
+
   return (
-    <React.Fragment>
-      {/* <img class= "scale-up-left" src={flexImage} alt="flexing" /> */}
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
           <a class="navbar-brand" href="#">metricsapp</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,54 +29,12 @@ function Header() {
                 <li><a class="dropdown-item" href="#">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Documentation</a></li>
                 <li><h6 class="dropdown-header">Pick your apps</h6></li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">CAREWare</label>
+                {PORTALS.map((portal, index) => (
+                  <li key={index}> <div class="dropdown-item"><div class="form-check"><input defaultChecked={portals.some(p => p.name === portal.name)} onChange={(e) => setPortal({name: e.target.value})} className="form-check-input" type="checkbox" id={`${portal.name}`} name="applications" value={`${portal.name}`} />
+                    <label className="form-label" htmlFor={`${portal.name}`}>{portal.name}</label>
                   </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">AIMS2.0</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">CTLS</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">HIVD2C</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">STARS</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">PCEligibilty</label>
-                  </div></div></li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">TOPWA</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">ELR</label>
-                  </div></div></li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">PCFMRS</label>
-                  </div></div>
-                </li>
-                <li>
-                  <div class="dropdown-item"><div class="form-check"><input className="form-check-input" type="checkbox" id="CAREWare" name="applications" value="CAREWare" />
-                    <label className="form-label" for="CAREWare">MOVEit</label>
-                  </div></div>
-                </li>
+                  </li>
+                ))}
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#">Log out</a></li>
               </ul>
@@ -79,8 +42,8 @@ function Header() {
           </ul>
         </div>
       </nav >
-    </React.Fragment >
-  );
+  )
+  ;
 }
 
 export default Header;
