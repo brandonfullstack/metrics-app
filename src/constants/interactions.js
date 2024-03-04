@@ -3,7 +3,6 @@ export const INTERACTIONS = [
   { name: "Calls Received" },
   { name: "Emails Received" },
   { name: "Emails Sent" },
-  { name: "Texts Sent" },
   { name: "Meetings" },
   { name: "Support Tickets Assigned" },
   { name: "Support Tickets Completed" },
