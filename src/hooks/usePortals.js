@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
+import PORTALS from '../constants/portals';
 
 
 
@@ -21,7 +22,7 @@ export const usePortals = create()(
         
         return {
           // spread syntax to copy the state
-          portals: [...state.portals , portal]
+          portals: [...state.portals , PORTALS.find(p => p.name === portal.name)]
         }
       }),
     }),
