@@ -6,6 +6,13 @@ import { usePortals } from "../hooks/usePortals";
 export default function Table() {
 
   const { portals } = usePortals();
+  const [metrics, setMetrics] = React.useState({});
+
+  const handleMetricInput = (metric) => {
+    const metricObject = { value: metric.value, portalId: metric.portal, interactionId: metric.interaction, date: new Date()};
+
+    console.log(metricObject);
+  }
 
   return (
     <div className="container">
@@ -24,7 +31,7 @@ export default function Table() {
               <th className="w-10 text-end align-middle">{interaction.name}</th>
               {portals.map((portal, index) => (
                 <td key={index} className="text-nowrap">
-                  <input type="number" min="0" className="form-control" id={`${portal.id + interaction.id}`} name={`${portal.id + interaction.id}`} tabIndex={`${index + 1}`} />
+                  <input type="number" min="0" className="form-control" id={`${portal.id + "_" + interaction.id}`} name={`${portal.id + "_" + interaction.id}`} tabIndex={`${index + 1}`} onChange={(e) => handleMetricInput({ value: e.target.value, portal: portal.id, interaction: interaction.id })}/>
                 </td>
               ))}
             </tr>
