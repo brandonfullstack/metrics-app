@@ -27,7 +27,7 @@ export default function Table() {
         </thead>
         <tbody>
           {INTERACTIONS.map((interaction, index) => (
-            <tr>
+            <tr key={index}>
               <th className="w-10 text-end align-middle">{interaction.name}</th>
               {portals.map((portal, index) => (
                 <td key={index} className="text-nowrap">
