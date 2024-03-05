@@ -25,7 +25,7 @@ export default function Table() {
               <th className="w-10 text-end align-middle">{interaction.name}</th>
               {portals.map((portal, index) => (
                 <td key={index} className="text-nowrap">
-                  <input type="number" min="0" className="form-control" id={`${portal.name + interaction.name}`} name={`${portal.name + interaction.name}`} tabIndex={`${index + 1}`} />
+                  <input type="number" min="0" className="form-control" id={`${portal.id + interaction.id}`} name={`${portal.name + interaction.name}`} tabIndex={`${index + 1}`} />
                 </td>
               ))}
             </tr>
