@@ -24,7 +24,7 @@ export const usePortals = create()(
           // spread syntax to copy the state
           portals: [...state.portals , PORTALS.find(p => p.name === portal.name)]
         }
-      }),
+      })
     }),
     {
       name: 'portals-storage',
