@@ -56,7 +56,7 @@ export default function Calendar({setSelectedDateISO}) {
         <ul className="pagination">
           <li className="page-item"><button type="button" tabIndex= "0" className="page-link" onClick={handlePreviousDay}>{"<"}</button></li>
           <li className="page-item"><div className="dropdown-center" role="group">
-            <button type="button" className="page-link" data-bs-toggle="dropdown" style={{width: "300px"}} aria-expanded="false">
+            <button type="button" className="page-link" data-bs-toggle="dropdown" data-bs-auto-close="outside" style={{width: "300px"}} aria-expanded="false">
               {format(selectedDay, 'PPPP')}
             </button>
             <ul className="dropdown-menu">
