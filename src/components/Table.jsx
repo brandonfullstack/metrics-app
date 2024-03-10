@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import INTERACTIONS from "../constants/interactions";
 import { usePortals } from "../hooks/usePortals";
-import { format } from 'date-fns';
+import { format, set } from 'date-fns';
 
 export default function Table({ selectedDateISO }) {
 
@@ -27,10 +27,11 @@ export default function Table({ selectedDateISO }) {
       return;
     }
 
+    console.log("metric input value: " + metric.value)
     let metricObject = { value: parseInt(metric.value), portalId: metric.portal, interactionId: metric.interaction, date: format(selectedDateISO, 'yyyy-MM-dd') };
 
 
-    const matchingMetric = metrics.find(m => m.portalId === metricObject.portalId && m.interactionId === metricObject.interactionId);
+    const matchingMetric = metrics.find(m => m.portalId === metricObject.portalId && m.interactionId === metricObject.interactionId && m.date === metricObject.date);
 
 
     //if the metric value does not exist, create it
@@ -48,9 +49,8 @@ export default function Table({ selectedDateISO }) {
 
       const data = await response.json();
 
-      setMetrics([...metrics, { ...metricObject, metricId: data.id }]);
-
-    }
+      setMetrics([...metrics, { ...metricObject, metricId: data.metricId }]);
+}
 
     //if the metric value is the same, do nothing
     else if (matchingMetric.value === metricObject.value) {
@@ -59,18 +59,16 @@ export default function Table({ selectedDateISO }) {
 
     //the metric value already exists, update it
     else {
-      console.log("updating metric");
+      console.log("updating metric, existing id: " + matchingMetric.metricId);
       const response = await fetch(`http://localhost:5000/api/metrics/${matchingMetric.metricId}/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ ...metricObject, metricId: matchingMetric.metricId })
-      }).catch(function (error) {
-        console.log('Request failed', error);
-      })
+      });
 
-      setMetrics(metrics.map(m => m.metricId === matchingMetric.metricId ? metricObject : m));
+      setMetrics(metrics.map(m => m.metricId === matchingMetric.metricId ? { ...metricObject, metricId: matchingMetric.metricId } : m));
     }
 
   }
