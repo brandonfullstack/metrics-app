@@ -75,9 +75,9 @@ export default function Calendar({ setSelectedDateISO }) {
     <div className="position-relative">
       <nav aria-label="Page navigation example" className="d-flex justify-content-center">
         <ul className="pagination">
-          <li className="page-item"><button ref={leftButtonRef} type="button" tabIndex="0" className="page-link" onClick={handlePreviousDay}>{"<"}</button></li>
+          <li className="page-item"><button tabindex="-1" ref={leftButtonRef} type="button" tabIndex="0" className="page-link" onClick={handlePreviousDay}>{"<"}</button></li>
           <li className="page-item"><div className="dropdown-center" role="group">
-            <button type="button" className="page-link" data-bs-toggle="dropdown" data-bs-auto-close="outside" style={{ width: "300px" }} aria-expanded="false">
+            <button tabindex="-1" type="button" className="page-link" data-bs-toggle="dropdown" data-bs-auto-close="outside" style={{ width: "300px" }} aria-expanded="false">
               {format(selectedDay, 'PPPP')}
             </button>
             <ul className="dropdown-menu">
@@ -105,7 +105,7 @@ export default function Calendar({ setSelectedDateISO }) {
               /></li>
             </ul>
           </div></li>
-          <li className="page-item"><button ref={rightButtonRef} type="button" className="page-link" onClick={handleNextDay}>{">"}</button></li>
+          <li className="page-item"><button tabindex="-1" ref={rightButtonRef} type="button" className="page-link" onClick={handleNextDay}>{">"}</button></li>
         </ul>
       </nav>
     </div>
