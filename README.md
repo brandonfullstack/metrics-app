@@ -1,4 +1,33 @@
-# Getting Started with Create React App
+# _metricsapp_
+
+#### By _**Brandon Wright**_
+
+#### _This repo contains only the React front-end half of a single page application for collecting, storing, and visualizing user-support interactions for various portals. Full functionality requires that you also clone the C#/.Net back-end API from https://github.com/brandonfullstack/MetricsApi.Solution_
+
+## Component Tree
+```
+├── App.jsx
+│   ├── Header.jsx
+│   ├── Table.jsx
+│   ├── Calendar.jsx
+```
+
+## Technologies Used
+
+* _HTML_
+* _CSS_
+* _JavaScript_
+* _React_
+* _TypScript_
+* _Git_
+
+## Setup/Installation Steps
+Step 1 - Clone project with: `git clone https://github.com/brandonfullstack/metrics-app`
+Step 2 - Navigate to project directory with: `cd metrics-app`. 
+Step 3 - Install dependencies with: `npm install`.
+Step 4 - Start application with: `npm run start`.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,26 +74,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Known Bugs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* _No known issues_
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+_[MIT](https://choosealicense.com/licenses/mit/)_
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright (c) _2024_ _Brandon Wright_
