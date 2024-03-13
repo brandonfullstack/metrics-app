@@ -50,7 +50,7 @@ export default function Table({ selectedDateISO }) {
       const data = await response.json();
 
       setMetrics([...metrics, { ...metricObject, metricId: data.metricId }]);
-}
+    }
 
     //if the metric value is the same, do nothing
     else if (matchingMetric.value === metricObject.value) {
@@ -70,12 +70,11 @@ export default function Table({ selectedDateISO }) {
 
       setMetrics(metrics.map(m => m.metricId === matchingMetric.metricId ? { ...metricObject, metricId: matchingMetric.metricId } : m));
     }
-
   }
 
   return (
-    <div className="container">
-      <table className="table table-borderless table-responsive mx-auto p-5">
+    <div className="container-fluid">
+      <table className="table table-borderless table-responsive mx-auto p-5" style={{ width: "auto" }}>
         <thead>
           <tr>
             <th><span className="visually-hidden">Metrics</span></th>

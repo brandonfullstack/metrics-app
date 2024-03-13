@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className='py-4'>
+      <div className="py-4">
       <Table selectedDateISO={selectedDateISO}/>
       <Calendar setSelectedDateISO={setSelectedDateISO}/>
       </div>
